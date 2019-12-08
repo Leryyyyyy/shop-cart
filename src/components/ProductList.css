@@ -1,0 +1,24 @@
+.item{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item li{
+    width: 22%;
+    margin-top: 20px;
+}
+.item li img{
+    width:200px;
+    height: 200px;
+    display:block;
+    
+}
+.pname{
+    margin:10px ;
+}
+*{
+    line-height:50px
+}
