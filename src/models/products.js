@@ -11,16 +11,19 @@ const products = new schema.Entity("products");
 export default {
   namespace: "products",
   state: {
-    result: [],
+    result: [], 
     byId: {}
   },
   effects: {
     *query(action, { call, put }) {
       const res = yield call(shop.getProducts);
+     
       yield put({
         type: "setProducts",
         payload: normalize(res.data, [products])
       });
+      
+
     }
   },
   reducers: {
@@ -31,15 +34,15 @@ export default {
         result: payload.result
       };
     },
-    decinstallments: (state, { payload: { id } }) => {
-      const selected = state.byId[id];
-      return {
-        ...state,
-        byId: {
-          ...state.byId,
-          [id]: { ...selected, installments: selected.installments - 1 }
-        }
-      };
-    }
+    // decinstallments: (state, { payload: { id } }) => {
+    //   const selected = state.byId[id];
+    //   return {
+    //     ...state,
+    //     byId: {
+    //       ...state.byId,
+    //       [id]: { ...selected, installments: selected.installments - 1 }
+    //     }
+    //   };
+    // }
   }
 };
